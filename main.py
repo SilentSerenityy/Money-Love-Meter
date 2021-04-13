@@ -1,8 +1,22 @@
-import random
-import times
-from datetime import *
-day = times.b
+from __future__ import absolute_import, unicode_literals
+from __future__ import division, print_function
+import datetime
+import time
 
+import randomclass Zone(datetime.tzinfo):
+    def __init__(self,offset,isdst,name):
+      self.offset = offset
+      self.isdst = isdst
+      self.name = name
+    def utcoffset(self, dt):
+      return datetime.timedelta(hours=self.offset) + self.dst(dt)
+    def dst(self, dt):
+      return datetime.timedelta(hours=1) if self.isdst else datetime.timedelta(0)
+    def tzname(self,dt):
+      return self.name
+
+EST = Zone(-5,False,'EST')
+day = datetime.datetime.now(EST).strftime('%m/%d/%Y %H:%M:%S %Z')
 
 while True:
     name = input("Name: ")
@@ -59,4 +73,3 @@ while True:
     r.close()
 
     print(xxx, yyy, zzz)
-
