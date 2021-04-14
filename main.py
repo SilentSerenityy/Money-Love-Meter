@@ -19,7 +19,7 @@ EST = Zone(-5,False,'EST')
 day = datetime.datetime.now(EST).strftime('%m/%d/%Y %H:%M:%S %Z')
 
 while True:
-    name = input("Name: ")
+    name = input("Your name: ")
 
     a = "💖 🖤 🖤 🖤 🖤 🖤 🖤 🖤 🖤 🖤"
     b = "💖 💖 🖤 🖤 🖤 🖤 🖤 🖤 🖤 🖤"
@@ -73,3 +73,5 @@ while True:
     r.close()
 
     print(xxx, yyy, zzz)
+    
+    print("Thanks for the affection!")
