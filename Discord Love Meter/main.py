@@ -81,4 +81,4 @@ async def snuggle(ctx):
     await ctx.send(f"{xxx}\n{yyy}\n{zzz}")
                    
 B.b()
-client.run(os.getenv('TOKENA'))
+client.run(os.getenv('TOKEN'))
