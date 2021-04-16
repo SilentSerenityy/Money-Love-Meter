@@ -70,12 +70,16 @@ def moneylovemeter():
     yyy = f'I loved it this much!\n{yy}\n'
     zzz = f'I give you {zz} golden coins!'
 
+    logx = f'Time: {xx}\n'
+    logy = f'Love Meter: {yy}\n'
+    logz = f'Coins Recieved: {zz}\n\n'
+
     r = open((name)+".txt","a")
-    r.write(xxx)
+    r.write(logx)
     r = open((name)+".txt","a")
-    r.write(yyy)
+    r.write(logy)
     r = open((name)+".txt","a")
-    r.write(zzz)
+    r.write(logz)
     r.close()
 
     box.showinfo(f"Thanks for snuggling me {name}!", \
