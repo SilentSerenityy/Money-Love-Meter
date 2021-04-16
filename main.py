@@ -2,8 +2,11 @@ from __future__ import absolute_import, unicode_literals
 from __future__ import division, print_function
 import datetime
 import time
+from tkinter import *
+import tkinter.messagebox as box
+import random
 
-import randomclass Zone(datetime.tzinfo):
+class Zone(datetime.tzinfo):
     def __init__(self,offset,isdst,name):
       self.offset = offset
       self.isdst = isdst
@@ -16,10 +19,12 @@ import randomclass Zone(datetime.tzinfo):
       return self.name
 
 EST = Zone(-5,False,'EST')
-day = datetime.datetime.now(EST).strftime('%m/%d/%Y %H:%M:%S %Z')
 
-while True:
-    name = input("Your name: ")
+def moneylovemeter():
+  import tkinter as tk
+
+  def lovemeter():
+    name = nameentry.get()
 
     a = "💖 🖤 🖤 🖤 🖤 🖤 🖤 🖤 🖤 🖤"
     b = "💖 💖 🖤 🖤 🖤 🖤 🖤 🖤 🖤 🖤"
@@ -56,13 +61,14 @@ while True:
     elif y == j:
       z = random.randint(96 , 100)
 
+    day = datetime.datetime.now(EST).strftime('%m/%d/%Y %H:%M:%S %Z')
     xx = str(day)
     yy = str(y)
     zz = str(z)
 
-    xxx = f'Time: {xx}\n'
-    yyy = f'Love Meter: {yy}\n'
-    zzz = f'Coins Recieved: {zz}\n\n'
+    xxx = f'{xx}\n'
+    yyy = f'I loved it this much!\n{yy}\n'
+    zzz = f'I give you {zz} golden coins!'
 
     r = open((name)+".txt","a")
     r.write(xxx)
@@ -72,6 +78,33 @@ while True:
     r.write(zzz)
     r.close()
 
-    print(xxx, yyy, zzz)
-    
-    print("Thanks for the affection!")
+    box.showinfo(f"Thanks for snuggling me {name}!", \
+    f"{xxx}{yyy}{zzz}")
+
+
+  mlmeter = Tk()
+
+  mlmeter.title("Snuggle Me!")
+
+  mlwindow = Frame(master=mlmeter)
+
+  nameentry = Entry(master=mlwindow, width=10)
+
+  mlname = Label(master=mlwindow, text="Your name:")
+
+  nameentry.grid(row=0, column=1, sticky="e")
+
+  mlname.grid(row=0, column=0, sticky="w")
+
+  snuggle = Button(master=mlmeter, text="Snuggle!", command=lovemeter)
+
+  result = Label(master=mlmeter)
+
+  mlwindow.grid(row=0, column=0)
+  snuggle.grid(row=0, column=1)
+  result.grid(row=2, column=0)
+
+
+  mlmeter.mainloop()
+
+moneylovemeter()
